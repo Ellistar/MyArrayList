@@ -24,8 +24,12 @@ public class MyArrayList<T> {
 
     public void remove(int index) {
         Object[] newerArray = new Object[elements.length - 1];
-        System.arraycopy(elements, index + 1, newerArray, index, size - index - 1);
-        size--;
+        for (int i = 0, k = 0; i < elements.length; i++) {
+            if (i == index) {
+                continue;
+            }
+            newerArray[k++] = elements[i];
+        }
         elements = newerArray;
     }
 
