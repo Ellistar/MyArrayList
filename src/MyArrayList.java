@@ -1,4 +1,4 @@
-public class MyArrayList<T> {
+public class MyArrayList {
     public static final int defaultCapacity = 5;
     public Object[] elements;
     private int size;
