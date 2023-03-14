@@ -23,14 +23,18 @@ public class MyArrayList {
     }
 
     public void remove(int index) {
-        Object[] newerArray = new Object[elements.length - 1];
-        for (int i = 0, k = 0; i < elements.length; i++) {
-            if (i == index) {
-                continue;
+        if (index >= 0 && index <= elements.length) {
+            Object[] newerArray = new Object[elements.length - 1];
+            for (int i = 0, k = 0; i < elements.length; i++) {
+                if (i == index) {
+                    continue;
+                }
+                newerArray[k++] = elements[i];
             }
-            newerArray[k++] = elements[i];
+            elements = newerArray;
+        } else {
+            System.out.println("wrong index!");
         }
-        elements = newerArray;
     }
 
     public void clear() {
@@ -43,7 +47,10 @@ public class MyArrayList {
     }
 
     public Object get(int index) {
+        if (index >= 0 && index <= elements.length) {
         return elements[index];
     }
-
+        else {
+            System.out.println("wrong index!");
+        }
 }
